@@ -1,4 +1,4 @@
-
+name: Build APK
 on: [push]
 jobs:
   build:
@@ -15,10 +15,10 @@ jobs:
           channel: 'stable'
       - run: |
           rm -rf android
-          flutter create  . --platforms=android
+          flutter create. --platforms=android
           flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
         with:
           name: ANAS-DOLLAR-APK
-          path: build/app/outputs/flutter-apk/app
+          path: build/app/outputs/flutter-apk/app-release.apk
